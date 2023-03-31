@@ -56,3 +56,4 @@ while True:
 # display the score if the game ends (breaking the infinite loop)
 display.scroll(score)
 reset()
+
