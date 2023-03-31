@@ -25,7 +25,6 @@ moon_y = 10
 day_time = 0
 night_time = 0
 
-
 # ---------------------------
 
 running = True
