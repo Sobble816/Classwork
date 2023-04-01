@@ -22,8 +22,6 @@ sun_y = 100
 moon_x = 300
 moon_y = 10
 
-day_time = 0
-night_time = 0
 
 # ---------------------------
 
@@ -43,13 +41,14 @@ while running:
 
 
 # Day Time
-    screen.fill("#c8eefe")
+    screen.fill("#76D3FF")
     pygame.draw.circle(screen, "#ffe647", (sun_x, sun_y), 50) #sun
-    pygame.draw.rect(screen, "#4db258", (0, 350, WIDTH, 90)) #ground
+    pygame.draw.rect(screen, "#4db258", (0, 350, WIDTH, HEIGHT/4)) #ground
     
     #moutain
+    pygame.draw.polygon(screen, "#575e63", [(120, 53), (220, 350), (20, 350)])
     pygame.draw.polygon(screen, "#646b71", [(-50, 350), (179, 350), (50, 95)])
-    pygame.draw.polygon(screen, "#7c848b", [(102, 350), (254, 350), (182, 172)])
+    pygame.draw.polygon(screen, "#7c848b", [(88, 350), (137, 218), (153, 233), (182, 172), (254, 350)])
    
     #house
     pygame.draw.rect(screen, "#955b0a", (454, 279, 100, 100))
@@ -62,24 +61,24 @@ while running:
     pygame.draw.line(screen, "#955b0a", (529, 302), (529, 332), 3)
 
 
-
+    day_time = 0
     day_time += 1
     
-    if day_time == 10:
-        day_time = 0
-        sun_y += 20
+    if day_time == 1:
+        sun_y += 1
 
 
 
 #Sun Down
-    if sun_y > 240:
+    if sun_y > 260:
         screen.fill("#ff9000")
         pygame.draw.circle(screen, "#ffe647", (sun_x, sun_y), 50) #sun
-        pygame.draw.rect(screen, "#4db258", (0, 350, WIDTH, 90)) #ground
+        pygame.draw.rect(screen, "#4db258", (0, 350, WIDTH, HEIGHT/4)) #ground
 
        #moutains
+        pygame.draw.polygon(screen, "#575e63", [(120, 53), (220, 350), (20, 350)])
         pygame.draw.polygon(screen, "#646b71", [(-50, 350), (179, 350), (50, 95)])
-        pygame.draw.polygon(screen, "#7c848b", [(102, 350), (254, 350), (182, 172)])
+        pygame.draw.polygon(screen, "#7c848b", [(88, 350), (137, 218), (153, 233), (182, 172), (254, 350)])
       
         #house
         pygame.draw.rect(screen, "#955b0a", (454, 279, 100, 100))
@@ -94,51 +93,62 @@ while running:
 
 #Night
     if sun_y > 385:
-        screen.fill("#323132")
+        screen.fill("#0f1012")
         
         #stars
-        pygame.draw.circle(screen, "white", (17, 29), 2)
-        pygame.draw.circle(screen, "white", (98, 29), 2)
-        pygame.draw.circle(screen, "white", (53, 88), 2)
-        pygame.draw.circle(screen, "white", (15, 122), 2)
-        pygame.draw.circle(screen, "white", (133, 142), 2)
-        pygame.draw.circle(screen, "white", (213, 38), 2)
-        pygame.draw.circle(screen, "white", (472, 33), 2)
-        pygame.draw.circle(screen, "white", (374, 42), 2)
-        pygame.draw.circle(screen, "white", (425, 156), 2)
-        pygame.draw.circle(screen, "white", (328, 222), 2)
-        pygame.draw.circle(screen, "white", (236, 191), 2)
-        pygame.draw.circle(screen, "white", (284, 113), 2)
-        pygame.draw.circle(screen, "white", (271, 341), 2)
-        pygame.draw.circle(screen, "white", (407, 306), 2)
-        pygame.draw.circle(screen, "white", (409, 226), 2)
-        pygame.draw.circle(screen, "white", (555, 193), 2)
-        pygame.draw.circle(screen, "white", (562, 97), 2)
-        pygame.draw.circle(screen, "white", (586, 310), 2)
-        pygame.draw.circle(screen, "white", (159, 80), 2)
-        pygame.draw.circle(screen, "white", (459, 85), 2)
-        pygame.draw.circle(screen, "white", (327, 274), 2)
-        pygame.draw.circle(screen, "white", (368, 144), 2)
-        pygame.draw.circle(screen, "white", (452, 179), 2)
+        pygame.draw.circle(screen, "#F6F7F7", (17, 29), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (98, 29), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (53, 88), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (15, 122), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (286, 166), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (213, 38), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (472, 33), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (374, 42), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (425, 156), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (328, 222), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (236, 191), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (284, 113), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (289, 318), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (407, 306), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (409, 226), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (555, 193), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (562, 97), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (586, 310), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (159, 80), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (459, 85), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (327, 274), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (368, 144), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (487, 188), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (295, 30), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (540, 24), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (510, 134), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (478, 0), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (249, 263), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (208, 107), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (338, 81), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (406, 89), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (514, 72), 1)
+        pygame.draw.circle(screen, "#F6F7F7", (279, 219), 1)
 
 
-        pygame.draw.circle(screen, "#fbfbfb", (moon_x, moon_y), 40) #moon
+        pygame.draw.circle(screen, "#FDFDFD", (moon_x, moon_y), 40) #moon
         
-        
 
+        night_time = 0
         night_time += 1
-        
-        if night_time == 10:
-            night_time = 0
-            moon_y += 20
+
+        if night_time == 1:    
+            moon_y += 1
        
 
 
-        pygame.draw.rect(screen, "#245329", (0, 350, WIDTH, 90)) #ground
+        pygame.draw.rect(screen, "#245329", (0, 350, WIDTH, HEIGHT/4)) #ground
        
         #moutain
+        pygame.draw.polygon(screen, "#32353b", [(120, 53), (220, 350), (20, 350)])
         pygame.draw.polygon(screen, "#3c3f47", [(-50, 350), (179, 350), (50, 95)])
-        pygame.draw.polygon(screen, "#4d505b", [(102, 350), (254, 350), (182, 172)])
+        pygame.draw.polygon(screen, "#4d505b", [(88, 350), (137, 218), (153, 233), (182, 172), (254, 350)])
+        
         
         #house
         pygame.draw.rect(screen, "#694007", (454, 279, 100, 100))
