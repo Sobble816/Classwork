@@ -5,6 +5,7 @@ from pygame.locals import K_ESCAPE, KEYDOWN, QUIT, MOUSEBUTTONDOWN
 
 pygame.init()
 
+# screen size
 WIDTH = 600
 HEIGHT = 400
 SIZE = (WIDTH, HEIGHT)
@@ -13,7 +14,8 @@ screen = pygame.display.set_mode(SIZE)
 clock = pygame.time.Clock()
 
 
-# ---------------------------
+# -------------------
+
 # Initialize global variables
 
 sun_x = 300
@@ -21,7 +23,6 @@ sun_y = 100
 
 moon_x = 300
 moon_y = 10
-
 
 # ---------------------------
 
