@@ -3,8 +3,7 @@ import math
 import pygame
 import random
 
-from pygame.draw import circle
-from pygame.locals import K_ESCAPE, KEYDOWN, QUIT, MOUSEBUTTONDOWN, K_SPACE
+from pygame.locals import K_ESCAPE, KEYDOWN, QUIT, MOUSEBUTTONDOWN
 
 pygame.init()
 pygame.font.init()
