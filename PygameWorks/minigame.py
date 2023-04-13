@@ -64,14 +64,14 @@ while running:
         target_x = 150
     elif  target_x <= 300:
         target_x = 300
-    elif target_x > 300:
+    else:
         target_x = 450
     
     if target_y <= 150:
         target_y = 150
     elif target_y <= 300:
         target_y = 300
-    elif target_y > 300:
+    else:
         target_y = 450  
     
     
