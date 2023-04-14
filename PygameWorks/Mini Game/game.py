@@ -34,6 +34,11 @@ stage_x = 400
 stage_y = 300
 stage_radius = 40
 
+#back button
+back_x = 33
+back_y = 71
+back_radius = 30
+
 
 game = 0
 
@@ -65,8 +70,8 @@ while running:
             running = False
 
         elif event.type == MOUSEBUTTONDOWN:
-            
             mouse_x, mouse_y = event.pos
+            print(mouse_x, mouse_y)
 
         #start button
             a = start_x - mouse_x
@@ -74,13 +79,22 @@ while running:
             distance = math.sqrt(a**2 + b**2)
             if distance < start_radius:
                 game = 1
-        
+
+        #back button
+            back_a = back_x - mouse_x
+            back_b = back_y - mouse_y
+            back_distance = math.sqrt(back_a**2 + back_b**2)
+            if back_distance < back_radius:
+                game = 1
+
         #if Timed option was chosen
             timed_a = timed_x - mouse_x
             timed_b = timed_y - mouse_y
             timed_distance = math.sqrt(timed_a**2 + timed_b**2)
             if timed_distance < timed_radius:
                 game = 2
+                score = 0
+                timer = 500
             
         #if Stage option was chosen
             stage_a = stage_x - mouse_x
@@ -88,6 +102,7 @@ while running:
             stage_distance = math.sqrt(stage_a**2 + stage_b**2)
             if stage_distance < stage_radius:
                 game = 3
+                score = 0
             
         #target
             target_A = target_x - mouse_x
@@ -141,7 +156,7 @@ while running:
         button_text = font.render("START", False, (0, 0, 0))
         screen.blit(button_text, (245, 278))
 
-#---Option Screen------------------------------------------------------------------------------------------------------------------
+#---Chose Game Option Screen------------------------------------------------------------------------------------------------------------------
     elif game == 1:
         screen.fill("white")
         
@@ -178,6 +193,11 @@ while running:
         pygame.draw.circle(screen, "grey", (WIDTH/1.33, HEIGHT/4), circle_radius)
         pygame.draw.circle(screen, "grey", (WIDTH/1.33, HEIGHT/1.33), circle_radius)
 
+        #back button
+        pygame.draw.circle(screen, "white", (back_x, back_y), back_radius)
+        back_font = pygame.font.SysFont("Comic Sans MS", 25)
+        back_text = back_font.render("Back", False, (0, 0, 0))
+        screen.blit(back_text, (5, 50))
 
 
     #drawing targets
@@ -212,7 +232,12 @@ while running:
         pygame.draw.circle(screen, "white", (WIDTH/1.33, HEIGHT/2), circle_radius)
         pygame.draw.circle(screen, "white", (WIDTH/1.33, HEIGHT/4), circle_radius)
         pygame.draw.circle(screen, "white", (WIDTH/1.33, HEIGHT/1.33), circle_radius)
-
+        
+        #back button
+        pygame.draw.circle(screen, "white", (back_x, back_y), back_radius)
+        back_font = pygame.font.SysFont("Comic Sans MS", 25)
+        back_text = back_font.render("Back", False, (0, 0, 0))
+        screen.blit(back_text, (5, 50))
 
     # LEVEL 1 -----------------
         # drawing targets
@@ -227,8 +252,7 @@ while running:
             circle_radius = 40
 
 #------------------------------------------------------------------------------------------------------------------------------------
-   
-   
+  
     pygame.display.flip()
     clock.tick(30)
 
