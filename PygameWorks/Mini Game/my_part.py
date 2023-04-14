@@ -133,7 +133,6 @@ while running:
 
 #start screen
     else:
-    
         screen.fill("white")
         
         score_text = font.render(f"Score: {score}", False, (0, 0, 0))
