@@ -27,20 +27,12 @@ start_radius = 100
 
 
 game = 0
-
-frame_count = 0
 score = 0
-timer = 500
 
 font = pygame.font.SysFont("Comic Sans MS", 30)
 
 
 circle_radius = 50
-
-
-#targets
-target_x = random.randrange(0, 600)
-target_y = random.randrange(0, 600)
 
 # ---------------------------
 
