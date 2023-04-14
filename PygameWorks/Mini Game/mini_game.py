@@ -71,7 +71,6 @@ while running:
 
         elif event.type == MOUSEBUTTONDOWN:
             mouse_x, mouse_y = event.pos
-            print(mouse_x, mouse_y)
 
         #start button
             a = start_x - mouse_x
