@@ -20,6 +20,11 @@ clock = pygame.time.Clock()
 # -------------------
 # Initialize global variables
 
+#start button
+start_x = 300
+start_y = 300
+start_radius = 100
+
 #game option buttons
 timed_x = 100
 timed_y = 300
@@ -97,32 +102,16 @@ while running:
 
 #-----------------------------------------------------------------------------------------------------------------------------
     if not game == 0:
-        #start button
-        start_x = 0
-        start_y = 0
         start_radius = 0
     else:
-        #start button
-        start_x = 300
-        start_y = 300
         start_radius = 100
 
+
     if not game == 1:
-        #game option buttons
-        timed_x = 0
-        timed_y = 0
-
-        stage_x = 0
-        stage_y = 0
-
+        timed_radius = 0
+        stage_radius = 0
     else:
-        #game option buttons
-        timed_x = 100
-        timed_y = 300
         timed_radius = 40
-
-        stage_x = 400
-        stage_y = 300
         stage_radius = 40
 
 # ---Target Boundery-------------------------------------------------------------------------------------------------------------
@@ -237,7 +226,7 @@ while running:
             circle_radius = 40
 
     # LEVEL 3 ------------------
-        # if score == 40:
+        if score == 40:
 
 #------------------------------------------------------------------------------------------------------------------------------------
    
