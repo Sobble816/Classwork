@@ -233,9 +233,9 @@ while running:
         pygame.draw.circle(screen, "white", (WIDTH/1.33, HEIGHT/1.33), circle_radius)
         
         #back button
-        pygame.draw.circle(screen, "white", (back_x, back_y), back_radius)
+        pygame.draw.circle(screen, "black", (back_x, back_y), back_radius)
         back_font = pygame.font.SysFont("Comic Sans MS", 25)
-        back_text = back_font.render("Back", False, (0, 0, 0))
+        back_text = back_font.render("Back", False, (0, 0, 0), "white")
         screen.blit(back_text, (5, 50))
 
     # LEVEL 1 -----------------
