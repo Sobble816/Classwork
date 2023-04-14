@@ -55,7 +55,6 @@ while running:
             running = False
 
         elif event.type == MOUSEBUTTONDOWN:
-            
             mouse_x, mouse_y = event.pos
 
         #start button
@@ -76,25 +75,25 @@ while running:
                 frame_count = 0
                 target_x = random.randrange(0, 600)
                 target_y = random.randrange(0, 600)
-    
 
+
+#target boundery
+    if target_x <= 150:
+        target_x = 150
+    elif  target_x <= 300:
+        target_x = 300
+    else:
+        target_x = 450
+    
+    if target_y <= 150:
+        target_y = 150
+    elif target_y <= 300:
+        target_y = 300
+    else:
+        target_y = 450  
+
+#game
     if game == 1:
-        
-    #target boundery
-        if target_x <= 150:
-            target_x = 150
-        elif  target_x <= 300:
-            target_x = 300
-        else:
-            target_x = 450
-        
-        if target_y <= 150:
-            target_y = 150
-        elif target_y <= 300:
-            target_y = 300
-        else:
-            target_y = 450  
-        
         
         frame_count += 1
         timer -= 1
@@ -116,14 +115,12 @@ while running:
         pygame.draw.circle(screen, "grey", (WIDTH/1.33, HEIGHT/4), circle_radius)
         pygame.draw.circle(screen, "grey", (WIDTH/1.33, HEIGHT/1.33), circle_radius)
 
-
-
     #drawing targets
         if frame_count < 15:
             pygame.draw.circle(screen, "blue", (target_x, target_y), circle_radius)
 
 
-
+    #score & timer
         score_text = font.render(f"Score: {score}", False, (0, 0, 0))
         screen.blit(score_text, (0,0))
         
@@ -133,8 +130,10 @@ while running:
         if timer == 0:
             game = 0
 
+
+#start screen
     else:
-    #start screen
+    
         screen.fill("white")
         
         score_text = font.render(f"Score: {score}", False, (0, 0, 0))
