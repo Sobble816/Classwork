@@ -26,18 +26,8 @@ timed_y = 300
 timed_radius = 40
 
 stage_x = 400
-stage_y = 301
+stage_y = 300
 stage_radius = 40
-
-
-#start button
-start_x = 300
-start_y = 300
-start_radius = 100
-#start button
-start2_x = 300
-start2_y = 300
-start2_radius = 100
 
 
 game = 0
@@ -58,7 +48,7 @@ circle_radius = 50
 target_x = random.randrange(0, 600)
 target_y = random.randrange(0, 600)
 
-# ---------------------------
+# ----------------------------------------------------------------------------------------------------------------------------------
 running = True
 while running:
     # EVENT HANDLING
@@ -72,12 +62,14 @@ while running:
         elif event.type == MOUSEBUTTONDOWN:
             
             mouse_x, mouse_y = event.pos
+
         #start button
             a = start_x - mouse_x
             b = start_y - mouse_y
             distance = math.sqrt(a**2 + b**2)
             if distance < start_radius:
                 game = 1
+        
         #if Timed option was chosen
             timed_a = timed_x - mouse_x
             timed_b = timed_y - mouse_y
@@ -102,21 +94,38 @@ while running:
                 target_x = random.randrange(0, 600)
                 target_y = random.randrange(0, 600)
   
-#---Option Screen---------------------------------------------------------------------------------------
-    if game == 1:
-        screen.fill("white")
-        
-        #timed option
-        pygame.draw.circle(screen, "black", (timed_x, timed_y), timed_radius)
-        button_text = font.render("Timed", False, (0, 0, 0))
-        screen.blit(button_text, (57, 196))
-        
-        #stages option
-        pygame.draw.circle(screen, "black", (stage_x, stage_y), stage_radius)
-        button_text = font.render("Stage", False, (0, 0, 0))
-        screen.blit(button_text, (380, 196))
 
-#---Target Boundery------------------------------------------------------------------------------------
+#-----------------------------------------------------------------------------------------------------------------------------
+    if not game == 0:
+        #start button
+        start_x = 0
+        start_y = 0
+        start_radius = 0
+    else:
+        #start button
+        start_x = 300
+        start_y = 300
+        start_radius = 100
+
+    if not game == 1:
+        #game option buttons
+        timed_x = 0
+        timed_y = 0
+
+        stage_x = 0
+        stage_y = 0
+
+    else:
+        #game option buttons
+        timed_x = 100
+        timed_y = 300
+        timed_radius = 40
+
+        stage_x = 400
+        stage_y = 300
+        stage_radius = 40
+
+# ---Target Boundery-------------------------------------------------------------------------------------------------------------
     if target_x <= 150:
         target_x = 150
     elif  target_x <= 300:
@@ -131,8 +140,33 @@ while running:
     else:
         target_y = 450 
 
-#---Timed Option---------------------------------------------------------------------------------------
-    if game == 2:
+#---Starting Screen----------------------------------------------------------------------------------------------------------------
+    if game == 0:
+        screen.fill("white")
+        
+        score_text = font.render(f"Score: {score}", False, (0, 0, 0))
+        screen.blit(score_text, (0,0))
+
+        pygame.draw.circle(screen, "green", (start_x, start_y), start_radius)
+        button_text = font.render("START", False, (0, 0, 0))
+        screen.blit(button_text, (245, 278))
+
+#---Option Screen------------------------------------------------------------------------------------------------------------------
+    elif game == 1:
+        screen.fill("white")
+        
+        #timed option
+        pygame.draw.circle(screen, "black", (timed_x, timed_y), timed_radius)
+        button_text = font.render("Timed", False, (0, 0, 0))
+        screen.blit(button_text, (57, 196))
+        
+        #stages option
+        pygame.draw.circle(screen, "black", (stage_x, stage_y), stage_radius)
+        button_text = font.render("Stage", False, (0, 0, 0))
+        screen.blit(button_text, (363, 196))
+
+#---Timed Option--------------------------------------------------------------------------------------------------------------------
+    elif game == 2:
 
         frame_count += 1
         timer -= 1
@@ -160,8 +194,6 @@ while running:
         if frame_count < 15:
             pygame.draw.circle(screen, "blue", (target_x, target_y), circle_radius)
 
-
-
         score_text = font.render(f"Score: {score}", False, (0, 0, 0))
         screen.blit(score_text, (0,0))
         
@@ -171,7 +203,7 @@ while running:
         if timer == 0:
             game = 0
 
-#---Stage Option----------------------------------------------------------------------------------------
+#---Stage Option---------------------------------------------------------------------------------------------------------------------
     elif game == 3:
         frame_count += 1
         
@@ -200,25 +232,14 @@ while running:
         score_text = font.render(f"Score: {score}", False, (0, 0, 0), "white")
         screen.blit(score_text, (0,0))
 
-   # LEVEL 2 ------------------
-    if score == 20:
-        circle_radius = 40
+    # LEVEL 2 ------------------
+        if score == 20:
+            circle_radius = 40
 
     # LEVEL 3 ------------------
-    if score == 40:
+        # if score == 40:
 
-#---Starting Screen-------------------------------------------------------------------------------------
-    else:
-        screen.fill("white")
-        
-        score_text = font.render(f"Score: {score}", False, (0, 0, 0))
-        screen.blit(score_text, (0,0))
-
-        pygame.draw.circle(screen, "green", (start_x, start_y), start_radius)
-        button_text = font.render("START", False, (0, 0, 0))
-        screen.blit(button_text, (245, 278))
-
-#--------------------------------------------------------------------------------------------------------------
+#------------------------------------------------------------------------------------------------------------------------------------
    
    
     pygame.display.flip()
