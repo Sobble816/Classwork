@@ -85,7 +85,8 @@ while running:
             back_distance = math.sqrt(back_a**2 + back_b**2)
             if back_distance < back_radius:
                 game = 1
-
+                frame_count = 0
+                
         #if Timed option was chosen
             timed_a = timed_x - mouse_x
             timed_b = timed_y - mouse_y
@@ -93,8 +94,7 @@ while running:
             if timed_distance < timed_radius:
                 game = 2
                 score = 0
-                timer = 500
-                frame_count = 0
+                timer = 500    
             
         #if Stage option was chosen
             stage_a = stage_x - mouse_x
