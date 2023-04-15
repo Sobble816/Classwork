@@ -94,6 +94,7 @@ while running:
                 game = 2
                 score = 0
                 timer = 500
+                frame_count = 0
             
         #if Stage option was chosen
             stage_a = stage_x - mouse_x
@@ -102,6 +103,7 @@ while running:
             if stage_distance < stage_radius:
                 game = 3
                 score = 0
+                frame_count = 0
             
         #target
             target_A = target_x - mouse_x
